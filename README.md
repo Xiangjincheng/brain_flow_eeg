@@ -1,8 +1,8 @@
-### Base BrainFlow Analysis EEG
+# Base BrainFlow Analysis EEG
 
 此项目通过OpenBCI的脑电帽检测脑电信号，通过分析脑电信号进行仿真手或者RGB灯珠的控制。
 
-#### 目录
+## 目录
 
 - `dev/`: 依赖包源码
 	- \- `brainflow/`brainflow依赖包源码
@@ -12,7 +12,7 @@
 - `requirement.txt`: python依赖库
 - `仿生手掌Yhand-mini动作组.ini`: 仿生手掌动作组配置文件
 
-#### 使用方法
+## 使用方法
 
 直接运行brain_main.py（需要使用sudo权限）
 
@@ -23,9 +23,9 @@ loongson@loongson:~/eeg$ sudo python3 brain_main.py
 #use sudor run it
 ```
 
-#### 灯珠与仿生手控制库使用
+## 灯珠与仿生手控制库使用
 
-##### 灯珠
+### 灯珠
 
 引脚定义：V = 3.3V,	R = GPIO41,	G = GPIO44,	B = GPIO45
 
@@ -47,7 +47,7 @@ if __name__ == "__main__":
         time.sleep(1)
 ```
 
-##### 仿生手
+### 仿生手
 
 目前手指只有5各舵机，分别对应驱动板index = 1~5
 
