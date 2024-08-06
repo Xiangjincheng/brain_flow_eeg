@@ -5,12 +5,17 @@
 ## 目录
 
 - `dev/`: 依赖包源码
-	- \- `brainflow/`brainflow依赖包源码
+  -  `brainflow/`brainflow依赖包源码
+
+- `hand_dev/`:仿生手工具和手册资料
+	- `仿生手掌Yhand-mini动作组.ini`: 仿生手掌动作组配置文件
+	- `Zide_V5.94.exe`: 仿生手掌上位机调试工具
+	- `仿生同步机械手Yhand-mini-使用手册.pdf`
+
 - `brain_main.py`: 脑电帽检测与控制主程序
 - `hand_controller.py`:仿生手掌控制类函数库
 - `led.py`: RGB灯珠控制类函数库
 - `requirement.txt`: python依赖库
-- `仿生手掌Yhand-mini动作组.ini`: 仿生手掌动作组配置文件
 
 ## 使用方法
 
