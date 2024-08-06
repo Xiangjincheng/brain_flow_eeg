@@ -1,7 +1,7 @@
 import os
 import time
 
-class GPIOControl:
+class LEDControl:
     def __init__(self, gpio_map):
         self.gpio_map = gpio_map
         self.export_gpios()
@@ -68,7 +68,7 @@ if __name__ == "__main__":
     LED_B = 45
     gpio_map = {'R': LED_R, 'G': LED_G, 'B': LED_B}
 
-    gpio_control = GPIOControl(gpio_map)
+    gpio_control = LEDControl(gpio_map)
 
     while True:
         gpio_control.set_led_color('R')

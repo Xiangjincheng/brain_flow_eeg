@@ -4,20 +4,32 @@ import time
 from brainflow.board_shim import BoardShim, BrainFlowInputParams, BoardIds
 from brainflow.data_filter import DataFilter, WindowOperations, DetrendOperations, NoiseTypes, FilterTypes, AggOperations
 import numpy as np
-from led import GPIOControl
+from led import LEDControl
+from hand_controller import HandController
 
+# LED control
 LED_R = 41
 LED_G = 44 
 LED_B = 45
-gpio_map = {'R': LED_R, 'G': LED_G, 'B': LED_B}
+led_map = {'R': LED_R, 'G': LED_G, 'B': LED_B}
 TRIGGLE = 40
-gpio_control = GPIOControl(gpio_map)
+led_control = LEDControl(led_map)
 
-def detect(alpha_power):
+# Hand control
+hand_control = HandController('COM4', 115200)
+hand_control.call_action_group("石头")
+
+def LED_control(alpha_power):
     if alpha_power > TRIGGLE:
-        gpio_control.set_led_color('R')
+        led_control.set_led_color('R')
     else:
-        gpio_control.set_led_color('G')
+        led_control.set_led_color('G')
+
+def HAND_control(alpha_power):
+    if alpha_power > TRIGGLE:
+        hand_control.call_action_group("石头")
+    else:
+        hand_control.call_action_group("布")
 
 def main():
     params = BrainFlowInputParams()
@@ -55,7 +67,7 @@ def main():
             band_power_alpha_list.append(band_power_alpha)
         band_power_alpha_sum =  sum(band_power_alpha_list)
         print(band_power_alpha_sum)
-        detect(band_power_alpha_sum)
+        LED_control(band_power_alpha_sum)
 
 if __name__ == "__main__":
     main()
